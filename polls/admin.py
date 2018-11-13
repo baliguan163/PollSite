@@ -10,6 +10,15 @@ from .models import Question,Choice
 #         (None,               {'fields': ['question_text']}),
 #         ('Date information', {'fields': ['pub_date']}),
 #     ]
+
+
+# 现在还无法看到投票应用，必须先在admin中进行注册，告诉admin站点，请将polls的模型加入站点内，接受站点的管理。
+# 打开polls/admin.py文件，加入下面的内容：
+# from django.contrib import admin
+# from .models import Question
+# admin.site.register(Question)
+
+
 class ChoiceInline(admin.TabularInline): # admin.TabularInline admin.StackedInline
     model = Choice
     extra = 0
