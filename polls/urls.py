@@ -8,7 +8,12 @@ from . import views
 # 如上例，使用{% url 'detail' %} 可以根据polls.urls 中的name='detail' 来匹配。如果在同一个project下有多个app，其中都有name='detail' 时,又该如何匹配views呢？
 # 解决方法是，添加namespace到URLconf中，如在polls/urls.py 中添加： app_name = 'polls'
 
-app_name = 'polls'
+# 本教程例子中，只有一个app也就是polls，但是在现实中很显然会有5个、10个、更多的app同时存在一个项目中。
+# Django是如何区分这些app之间的URL name呢？
+# 答案是使用URLconf的命名空间。在polls/urls.py文件的开头部分，添加一个app_name的变量来指定该应用的命名空间：
+#
+
+app_name = 'polls' # 关键是这行
 urlpatterns = [
     # ex: /polls/
     url(r'^$', views.index, name='index'),
