@@ -21,6 +21,15 @@ class Question(models.Model):
     def was_published_recently(self):
         now = timezone.now()
         return now - datetime.timedelta(days=1) <= self.pub_date <= now
+    was_published_recently.admin_order_field = 'pub_date'
+    was_published_recently.boolean = True
+    was_published_recently.short_description = 'Published recently?'
+    # 你可以点击每一列的标题，来根据这列的内容进行排序。但是was_published_recently这一列除外，
+    # 不支持这种根据函数输出结果进行排序的方式。同时请注意，was_published_recently这一列的列标题默
+    # 认是方法的名字，内容则是输出的字符串表示形式。
+    # 可以通过给方法提供一些属性来改进输出的样式，如下面所示。注意这次修改的是polls / models.py文件，
+    # 不要搞错了！主要是增加了最后面三行内容
+
 
     def __str__(self):
         return self.question_text

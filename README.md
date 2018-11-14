@@ -1,7 +1,8 @@
 # python_web_pollsite
 Polls Demo
-
-
+-----------------------------------------------------------------------
+参考：http://liujiangblog.com/course/django
+-----------------------------------------------------------------------
 一个新建立的项目结构大概如下：
 mysite/
     manage.py
@@ -122,7 +123,8 @@ urlpatterns = [
 
 
 
-
+如果你无法找到Django源代码文件的存放位置，可以使用下面的命令：
+python -c "import django; print(django.__path__)"
 
 
 

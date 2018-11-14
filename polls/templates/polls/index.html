@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    {% load static %}
+     <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+{#{% static %}模板标签会生成静态文件的绝对URL路径。#}
+{#在浏览器访问http://localhost:8000/polls/，你会看到Question的超级链接变成了绿色（Django风格！），#}
+{#这意味着你的样式表被成功导入了#}
+
 </head>
 <body>
 
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 
 {% if latest_question_list %}
     <ul>
